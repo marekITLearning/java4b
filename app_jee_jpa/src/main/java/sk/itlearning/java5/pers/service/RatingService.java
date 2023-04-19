@@ -1,4 +1,4 @@
-package sk.itlearning.java4.jpa;
+package sk.itlearning.java5.pers.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,8 @@ import javax.persistence.criteria.Root;
 
 import org.eclipse.persistence.config.CacheUsage;
 import org.eclipse.persistence.config.QueryHints;
+
+import sk.itlearning.java5.pers.entity.Rating;
 
 @Stateful
 public class RatingService {

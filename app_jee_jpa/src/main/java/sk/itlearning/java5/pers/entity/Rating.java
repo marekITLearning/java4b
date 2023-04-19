@@ -1,28 +1,23 @@
-package sk.itlearning.java4.jpa;
+package sk.itlearning.java5.pers.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "rating", schema = "public")
 public class Rating {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
-	
 	private String tconst;
+
 	private Float averagerating;
+
 	private Integer numvotes;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "tconst", referencedColumnName = "tconst", insertable=false, updatable=false)	
+	@JoinColumn(name = "tconst", referencedColumnName = "tconst", insertable = false, updatable = false)
 	private Title title;
 
 	public String getTconst() {
@@ -55,14 +50,6 @@ public class Rating {
 
 	public void setTitle(Title title) {
 		this.title = title;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 }

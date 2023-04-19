@@ -12,7 +12,9 @@ public class WeatherDataRestClient {
 
 	public static Weatherdata getByLatLon(String lat, String lon) {
 		Client client = ClientBuilder.newClient();
-		WebTarget webTarget = client.target("https://api.met.no/weatherapi/locationforecast/1.9/?lat=" + lat + "&lon=" + lon + "&msl=70");
+		String target = "https://api.met.no/weatherapi/locationforecast/2.0/classic?lat=" + lat + "&lon=" + lon + "&altitude=90";
+		System.out.println(target);
+		WebTarget webTarget = client.target(target);
 		Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_XML);
 		Weatherdata response = invocationBuilder.get(Weatherdata.class);
 		return response;

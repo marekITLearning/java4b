@@ -1,19 +1,24 @@
-package sk.itlearning.java4.jpa;
+package sk.itlearning.java5.pers.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "title", schema = "public")
 public class Title {
+
+	public static String F_tconst = "tconst";
+
+	public static String F_primarytitle = "primarytitle";
+
+	public static String F_startyear = "startyear";
 
 	@Id
 	private String tconst;
-	
+
 	private String primarytitle;
+
 	private Integer startyear;
-	
+
 	public String getTconst() {
 		return tconst;
 	}

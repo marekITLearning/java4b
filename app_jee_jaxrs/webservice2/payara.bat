@@ -1,2 +1,0 @@
-rmdir /s /q pmroot
-C:/devel/jdk-11.0.18/bin/java.exe -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8081 -jar C:/devel/payara-micro-5.2021.2.jar --deploy target/java4ws.war --port 8080 --rootDir pmroot

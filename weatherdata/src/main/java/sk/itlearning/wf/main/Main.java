@@ -42,7 +42,7 @@ public class Main {
 		XYDataset dataset = createDataSet();
 		
 	    JFreeChart chart = ChartFactory.createTimeSeriesChart(
-	            "Temperature Forecast",
+	            "Temperature Forecast - Bratislava Kominarska",
 	            "Datetime",
 	            "Temperature",
 	            dataset);
@@ -79,7 +79,8 @@ public class Main {
 		// initialize data map for processed data
 		Map<LocalDateTime, BigDecimal> timeToTemperatureMap = new HashMap<>();
 
-		Weatherdata data = WeatherDataRestClient.getByLatLon("47.08", "17.18");
+		// Bratislava - Kominarska
+		Weatherdata data = WeatherDataRestClient.getByLatLon("48.15975521931955", "17.12311022065351");
 
 		// product.get(0) - get only first product; only one product is available
 		List<TimeType> forecastForTimeList = data.getProduct().get(0).getTime();
