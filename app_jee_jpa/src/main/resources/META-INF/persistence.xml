@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+	<!-- Used only for entity generation; not loaded by server -->
+	<persistence-unit name="DDL_GEN"
+		transaction-type="RESOURCE_LOCAL">
+		<class>sk.itlearning.java4.jpa.Rating</class>
+		<class>sk.itlearning.java4.jpa.Title</class>
+		<properties>
+			<property
+				name="javax.persistence.schema-generation.scripts.action"
+				value="create" />
+			<property name="eclipselink.target-server" value="JBoss" />
+			<property name="jboss.as.jpa.managed" value="false" />
+		</properties>
+	</persistence-unit>
+
+</persistence>
