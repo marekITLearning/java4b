@@ -26,6 +26,12 @@
 			<artifactId>gson</artifactId>
 			<version>2.8.5</version>
 		</dependency>
+		<dependency>
+			<groupId>fish.payara.extras</groupId>
+			<artifactId>payara-micro</artifactId>
+			<version>6.2023.4</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>restapp</finalName>

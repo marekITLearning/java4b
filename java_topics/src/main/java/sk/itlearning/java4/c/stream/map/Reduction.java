@@ -37,7 +37,7 @@ public class Reduction {
 		
 		Book b = ops.orElse(new Book());
 		
-
+		System.out.println(b);
 	}
 
 }

@@ -11,21 +11,6 @@
 
 	<artifactId>app_jee_jpa</artifactId>
 
-	<properties>
-		<postgresql.driver.version>42.2.5</postgresql.driver.version>
-		<eclipselink.version>2.7.3</eclipselink.version>
-		<jdbcUrlRoot>jdbc:postgresql://localhost:5432/</jdbcUrlRoot>
-		<jdbcDriver>org.postgresql.Driver</jdbcDriver>
-		<jdbcUserRoot>postgres</jdbcUserRoot>
-		<jdbcPasswordRoot>postgres</jdbcPasswordRoot>
-		<jdbcDdlRes>src/main/sql</jdbcDdlRes>
-		<jdbcDdlMkdb>java4.create.sql</jdbcDdlMkdb>
-		<jdbcDdlCreate>DDL_GEN.postgres.create.sql</jdbcDdlCreate>
-		<jdbcDdlDrop>DDL_GEN.postgres.drop.sql</jdbcDdlDrop>
-		<dbName>imdb</dbName>
-		<persistenceUnitName>DDL_GEN</persistenceUnitName>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>javax</groupId>
@@ -36,104 +21,12 @@
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
-			<version>${eclipselink.version}</version>
+			<version>2.7.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>${postgresql.driver.version}</version>
+			<version>42.2.5</version>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>io.github.divinespear</groupId>
-				<artifactId>jpa-schema-maven-plugin</artifactId>
-				<version>0.2.1</version>
-				<executions>
-					<execution>
-						<id>jpa-ddl-PostgreSQL-generation</id>
-						<phase>process-classes</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<createOutputFileName>${jdbcDdlCreate}</createOutputFileName>
-							<dropOutputFileName>${jdbcDdlDrop}</dropOutputFileName>
-							<persistenceUnitName>DDL_GEN</persistenceUnitName>
-							<databaseProductName>PostgreSQL</databaseProductName>
-						</configuration>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>javax</groupId>
-						<artifactId>javaee-api</artifactId>
-						<version>8.0</version>
-					</dependency>
-					<dependency>
-						<groupId>org.eclipse.persistence</groupId>
-						<artifactId>eclipselink</artifactId>
-						<version>${eclipselink.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>org.postgresql</groupId>
-						<artifactId>postgresql</artifactId>
-						<version>${postgresql.driver.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>org.hibernate</groupId>
-						<artifactId>hibernate-core</artifactId>
-						<version>5.3.20.Final</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<properties>
-						<hibernate.dialect>none</hibernate.dialect>
-					</properties>
-					<scriptAction>drop-and-create</scriptAction>
-					<outputDirectory>src/main/sql</outputDirectory>
-					<doPostProcessing>true</doPostProcessing>
-					<createRegexp>((?:create|drop|alter)\s+(?:table|view|sequence|(?:unique\s+)?index)\s+(\w+))</createRegexp>
-				</configuration>
-			</plugin>
-		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											io.github.divinespear
-										</groupId>
-										<artifactId>
-											jpa-schema-maven-plugin
-										</artifactId>
-										<versionRange>
-											[0.2.1,)
-										</versionRange>
-										<goals>
-											<goal>generate</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-
 </project>
